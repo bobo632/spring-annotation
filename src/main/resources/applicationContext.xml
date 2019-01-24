@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+                               	http://www.springframework.org/schema/context
+                               		http://www.springframework.org/schema/context/spring-context.xsd
+                               	http://www.springframework.org/schema/aop
+       					    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:component-scan base-package="com.sunyx"/>
+    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
+    <util:properties location="classpath:jdbc.properties" id="jdbcProperties"/>
+    <aop:aspectj-autoproxy/>
+    <!--目标类：被增强的对象-->
+<!--    <bean id="studentDao" class="com.sunyx.dao.impl.StudentDao"/>
+    &lt;!&ndash;切面类，增强类&ndash;&gt;
+    <bean id="aspectXml" class="com.sunyx.proxy.AspectXml"/>
+    &lt;!&ndash;通过配合完成代理&ndash;&gt;
+    <aop:config>
+        &lt;!&ndash;配置哪些方法被增强&ndash;&gt;
+        <aop:pointcut id="beforePointCut" expression="execution(* com.sunyx.dao.impl.StudentDao.save(..))"/>
+        &lt;!&ndash;配置切面&ndash;&gt;
+        <aop:aspect ref="aspectXml">
+            <aop:before method="check" pointcut-ref="beforePointCut"/>
+            <aop:after-returning method="writeLog" returning="result" pointcut="execution(* com.sunyx.dao.impl.StudentDao.update(..))"/>
+            <aop:around method="round" pointcut="execution(* com.sunyx.dao.impl.StudentDao.delete(..))"/>
+            <aop:after-throwing method="afterThrow" pointcut="execution(* com.sunyx.dao.impl.StudentDao.find(..))" throwing="ex"/>
+            <aop:after method="after" pointcut="execution(* com.sunyx.dao.impl.StudentDao.find(..))"/>
+        </aop:aspect>
+    </aop:config>-->
+
+
+</beans>
